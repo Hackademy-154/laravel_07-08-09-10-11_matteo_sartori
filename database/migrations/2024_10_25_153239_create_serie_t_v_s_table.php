@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('films', function (Blueprint $table) {
-            $table->string('img')->nullable()->after('plot');
+        Schema::create('serie_t_v_s', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('films', function (Blueprint $table) {
-            $table->dropColumn('img');
-        });
+        Schema::dropIfExists('serie_t_v_s');
     }
 };
