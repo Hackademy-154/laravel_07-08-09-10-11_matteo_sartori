@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('films', function (Blueprint $table) {
             $table->id();
-            $table-> string('title');
-            $table-> string('plot');
-            $table-> string('duration');
+            $table->string('title');
+            $table->string('plot');
+            $table->integer('duration');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

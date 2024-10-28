@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Validations extends FormRequest
+class FilmValidations extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class Validations extends FormRequest
     {
         return [
             'title'=>'required|string|min:3',
-            'plot'=>'required|string|min:10|max:150',
+            'plot'=>'required|string|min:10|max:400',
             'duration'=>'required|numeric', 
             'img'=>'image|mimes:jpg,png,webp,jpeg', 
         ];
