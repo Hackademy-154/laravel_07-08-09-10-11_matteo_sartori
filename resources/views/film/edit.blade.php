@@ -34,27 +34,16 @@
                             <label class="form-check-label" for="">Categorie:</label>
                         </div>
                         <div class="col-12">
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="category-azione">Azione</label>
-                                <input class="form-check-input" type="checkbox" id="category-azione" value="option1">
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="category-avventura">Avventura</label>
-                                <input class="form-check-input" type="checkbox" id="category-avventura" value="option2">
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="category-fantascienza">Fantascienza</label>
-                                <input class="form-check-input" type="checkbox" id="category-fantascienza"
-                                    value="option3">
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="category-drama">Drama</label>
-                                <input class="form-check-input" type="checkbox" id="category-drama" value="option4">
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" for="category-commedia">Commedia</label>
-                                <input class="form-check-input" type="checkbox" id="category-commedia" value="option5">
-                            </div>
+                            @foreach ($categories as $category)
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="categories[]"
+                                        value="{{ $category->id }}" id="category-{{ $category->id }}"
+                                        {{ $film->categories->contains($category->id) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="category-{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-12 d-flex flex-column mt-3 mb-0">
